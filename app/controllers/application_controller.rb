@@ -11,4 +11,14 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/signup' do 
+    @user = User.new(params)
+
+    erb :signup
+  end
+
+  get '/login' do 
+    erb :login
+  end
+
 end
