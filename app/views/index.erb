@@ -2,9 +2,18 @@
 <html>
   <h1>Welcome to Musician Finder! </h1>
   <h2>Musician Finder helps you find other musicians in your city!</p>
-  <p> Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to find your band!</p>
-
-
+  <p> Please <a href="/signup">Sign Up</a> </p>
+  <br>
+  <p>OR</p>
+  <br>
+  <p>Log In:</p>
+    <form action="/login" method="POST">
+    <input type="text" name="username" placeholder="Username:">
+    <br>
+    <input type="password" name="password_digest" placeholder="Password:">
+    <br>
+    <input type="submit" value="Log In">
+  </form>
 
 
 
