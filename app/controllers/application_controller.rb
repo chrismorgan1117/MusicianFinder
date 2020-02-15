@@ -24,17 +24,18 @@ class ApplicationController < Sinatra::Base
       redirect '/error2'
     else
       User.create(name: params[:name],username: params[:username], password_digest: params[:password_digest])
-      redirect 'user/edit-profile'
+      redirect '/edit-profile'
     end
   end
 
-  post 'login' do 
+  post '/login' do 
     @user = User.find_by(:username => params[:username])
-    if @user != nil && @user.password == params[:password_digest]
+    if @user != nil && @user.password_digest == params[:password_digest]
       session[:user_id] = @user.id
-      redirect to 'user/profile'
+      redirect to '/profile/:id'
+    else
+      erb :login_error
     end
-    erb :login_error
   end
 
   get '/error' do 
